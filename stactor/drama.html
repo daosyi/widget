@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>performperform</title>
+    <style>
+    html,body{
+      overflow: hidden;
+    }
+    .CX-Drama{
+      position: relative;
+      width:100%;
+      height:100%;
+      overflow: hidden;
+    }
+    .CX-nav-icon{
+      width:40px;
+      left:50%;
+      margin-left:-20px;
+      position: absolute;
+      overflow: hidden;
+      text-align: center;
+      height: 20px;
+      margin-top:10px;
+      bottom:10px;
+      margin-top:0;
+    }
+    .CX-nav-icon-up{
+      bottom:auto;
+      top:10px;
+    }
+
+    .CX-nav-icon i{
+        content:"";
+        display:inline-block;
+        width:20px;
+        height:20px;
+        border:solid 3px #999;
+        transform: rotate(45deg);
+        position: relative;
+        top: -13px;
+        animation: cx-icon 1s infinite;
+     }
+     .CX-nav-icon-up i{
+        transform: rotate(45deg);
+        top: 7px;
+     }
+     @keyframes cx-icon{
+       0%{border:solid 3px #999;opacity: 0;}
+       50%{border:solid 3px #fff;opacity: 1;}
+       100%{border:solid 3px #666;opacity: 1;}
+     }
+
+    </style>
+	</head>
+	<body>
+    <div class="CX-Drama" id="CX-Drama">
+      <div class="CX-Stage" id="view1">111111111</div>
+      <div class="CX-Stage" id="view2">2222222222</div>
+      <div class="CX-Stage" id="view3">333333333333</div>
+      <div class="CX-Stage" id="view4">444444444</div>
+      <div class="CX-Stage" id="view5">55555555555</div>
+      <div class="CX-Stage" id="view6">66666666666</div>
+        <span class="CX-nav-icon CX-nav-icon-up" id="up"><i></i></span>
+        <span class="CX-nav-icon" id="down"><i></i></span>
+
+
+          
+
+   </div>
+    <script src="core.js"></script>
+    <script src="point.js"></script>
+    <script src="frameline.js"></script>
+    <script src="actor.js"></script>
+    <script src="stage.js"></script>
+    <script src="director.js"></script>
+		<script>
+       var _stage1=new _CX.Stage(document.getElementById("view1"));
+       var _stage2=new _CX.Stage(document.getElementById("view2"),{background:"#f00"});
+       var _stage3=new _CX.Stage(document.getElementById("view3"),{background:"#ff0"});
+       var _stage4=new _CX.Stage(document.getElementById("view4"),{background:"#0f0"});
+       var _stage5=new _CX.Stage(document.getElementById("view5"),{background:"#099"});
+       var _stage6=new _CX.Stage(document.getElementById("view6"),{background:"#990"});
+       var _director=new _CX.Director([_stage1,_stage2,_stage3,_stage4,_stage5,_stage6]);
+       
+
+       _stage1.addActor(_director.createActor("actor",{}));
+
+       _stage2.addActor(_director.createActor("actor1",{top:300}));
+
+       var line1=new _CX.FrameLine([
+              {left:0,top:0,width:30,height:30},
+              {left:300,top:0,width:30,height:30},
+              {left:300,top:1000,width:30,height:30}
+        ]);
+        _director.act(_stage1,"actor",line1,function(){
+          //_director.stageHide(0,"top");
+          //_director.stageShow(1,"top");
+
+          //_director.stageHide(0,"bottom");
+         // _director.stageShow(1,"bottom");
+          
+        });
+        _director.start(document.getElementById("CX-Drama"));
+        // document.body.addEventListener("click",function(e){
+        //   console.log(e);
+        // },false);
+		</script>
+	</body>
+</html>

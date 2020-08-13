@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    <title>csstest</title>
+    <style>
+      body,html{
+        overflow: hidden;
+      }
+      div{
+        position:absolute;top:-1000px;left:50%;overflow:hidden;width:300px;height:150px;margin:0 0 0 0;border:3px solid #900;background:#ddf;
+        animation:adiv1 1s ease-out forwards;box-sizing: border-box;
+    }
+span{opacity:0;display:block;height:50px;font:bold 14px/50px Georgia;}
+.adiv2{
+  animation:adiv2 1s ease-out forwards;box-sizing: border-box;
+}
+@keyframes adiv1{
+	0%{top:0;left:0;width:0;height:0}
+	100%{top:0;left:0;width:100%;height:100%}
+}
+
+@keyframes adiv2{
+	0%{top:0;left:0;width:100%;height:100%}
+  99%{top:0;left:0;width:0;height:0}
+	100%{top:-10px;left:-10px;width:0;height:0}
+}
+
+.a1{
+	transform:translate(55px);
+	animation:animations 2s ease-out;
+}
+@keyframes animations{
+	0%{transform:translate(0);opacity:0;}
+	50%{transform:translate(30px);opacity:1;}
+	70%{transform:translate(35px);opacity:1;}
+	100%{transform:translate(60px);opacity:0;}
+}
+.a2{
+	text-align:center;font-size:26px;
+	animation:animations2 5s ease-in-out 2s;
+}
+@keyframes animations2{
+	0%{opacity:0;}
+	40%{opacity:.8;}
+	45%{opacity:.3;}
+	50%{opacity:.8;}
+	55%{opacity:.3;}
+	60%{opacity:.8;}
+	100%{opacity:0;}
+}
+
+.a3{
+	transform:translate(100px);
+	animation:animations3 2s ease-out 4s;
+}
+@keyframes animations3{
+	0%{transform:translate(160px);opacity:0;}
+	50%{transform:translate(130px);opacity:1;}
+	70%{transform:translate(125px);opacity:1;}
+	100%{transform:translate(100px);opacity:0;}
+}
+
+    </style>
+	</head>
+	<body>
+      <div>
+          <!-- <span class="a1">a1 Animations</span>
+          <span class="a2">a2 Animations</span>
+          <span class="a3">a3 Animations</span> -->
+        </div>
+<script>
+  var _div=document.getElementsByTagName("div")[0];
+ window.setTimeout(function(){
+ 
+
+ },1000);
+ _div.addEventListener("animationstart",function(){
+    console.log("animationstart");
+ });
+ _div.addEventListener("animationend",function(){
+    console.log("animationend");
+    //_div.className="adiv2";
+ });
+</script>
+	</body>
+</html>
